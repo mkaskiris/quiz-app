@@ -33,7 +33,7 @@ router.post('/upsert', async (req, res) => {
 router.delete('/:user', async (req, res) => {
    try {
       await User.delete(req.params.user)
-      res.status(201)
+      res.status(204)
    } catch (err) {
       res.status(500).send({ err })
    }

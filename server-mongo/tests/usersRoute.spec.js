@@ -21,20 +21,24 @@ describe('users endpoints', () => {
     });
 
     it('should return data for a single user', async () => {
-        const res = await request(api).get('/users/testUser1@email.com');
+        const res = await request(api).get('/users/TestUser1');
         expect(res.statusCode).toEqual(200);
-        expect(res.body).toEqual({ 
-            id: 1,
-            userEmail: "testUser1@email.com",
-            passwordDigest: "password",
-            refreshTokens: ['Bearer 123'],
-            userName: "test user 1",
+        expect(res.body).toEqual(
+            {   name: 'TestUser1',
+                easy: 30,
+                medium: 25,
+                hard: 20
         });
     });
 
     it('should return an error for a user that does not exist', async () => {
-        const res = await request(api).get('/users/dontexist@fake.com');
+        const res = await request(api).get('/users/doesntexist');
         expect(res.statusCode).toEqual(404);
         expect(res.body).toEqual(err);
+    });
+
+    it('should return 201 after upserting', async () => {
+        const res = await request(api).get('/upsert');
+        expect(res.statusCode).toEqual(201);
     })
 });
