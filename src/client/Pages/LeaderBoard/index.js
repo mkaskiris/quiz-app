@@ -9,6 +9,7 @@ const LeaderBoard = () =>{
         {name: 'player 4', score: 70},
     ]
 
+    //can go in components?
     const createLeaderboard = 
         leaderboard.map(player => {
         return <li style={{tabsize:4}}>{player.name} {player.score}pts</li>
