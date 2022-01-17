@@ -21,3 +21,21 @@ a {
 h1 {
   text-align: center;
 }
+
+.leaderboard {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
+li {
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 20%;
+  margin-bottom: 2rem;
+  padding: 1rem 5rem 1rem 5rem;
+}
+
+li:hover {
+  background-color: gray;
+}

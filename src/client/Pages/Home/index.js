@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Home = () =>{
     return(
-        <>
+        <>  
             <h1>The Quiz Game</h1>
             <nav>
                 <NavLink className='leaderboards' to='/leaderboards'><button className='homebtn'>Leaderboard</button></NavLink>
@@ -12,8 +12,7 @@ const Home = () =>{
                 <NavLink className='join' to='/join'><button className='homebtn'>Join online game</button></NavLink>
             </nav>    
         </>
-
-        );
+    );
 }
 
 export default Home;
