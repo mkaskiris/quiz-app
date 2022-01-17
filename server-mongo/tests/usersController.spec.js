@@ -4,14 +4,14 @@ const User = require('../models/User');
 const mockSend = jest.fn();
 const mockJson = jest.fn();
 const mockStatus = jest.fn(code => ({ send: mockSend, json: mockJson }));
-const mockRes = { status: mockStatus }
+const mockRes = { status: mockStatus, json: mockJson }
 
-const testUser = new User({ 
-    name: "James",
-});
-const testUserTwo = new User({ 
-    name: "Raj"
-});
+const testUser = { 
+    user: "James",
+}
+const testUserTwo = { 
+    user: "Raj"
+}
 
 describe('users controller', () => {
     beforeEach(() => jest.clearAllMocks());
@@ -21,9 +21,9 @@ describe('users controller', () => {
     describe('findByName', () => {
         it('returns a user document with a 200 status code', async () => {
             jest.spyOn(User, 'findByName')
-                .mockResolvedValue(testUser);
+                .mockResolvedValue('James');
             
-            const mockReq = { params: { name: "James" } }
+            const mockReq = { params: { name: "TestUser1" } }
             
             await usersController.findByName(mockReq, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200);
@@ -38,7 +38,7 @@ describe('users controller', () => {
 
             await usersController.getAll(null, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200);
-            expect(mockJson).toHaveBeenCalledWith([testUser,testUserTwo]);
+            expect(mockJson).toHaveBeenCalledWith({ entries: [testUser,testUserTwo] });
         })
     });
 });
