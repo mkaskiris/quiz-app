@@ -6,7 +6,7 @@ const User = require('../models/User');
 async function getAll(req, res) {
    try {
       const users = await User.all
-      res.json({ entries: users })
+      res.status(200).json({ entries: users })
    } catch (err) {
       res.status(500).send({ err })
    }
@@ -24,9 +24,10 @@ async function getAll(req, res) {
 async function findByName(req, res) {
    try {
       const user = await User.findByName(req.params.name)
-      user ? res.json({ user: user }) : res.status(404).send('User not found')
+      user ? res.status(200).json({ user: user }) : res.status(404).send('User not found')
    } catch (err) {
-      res.status(500).send({ err })
+      console.log(err)
+      res.status(500).send({ err: err })
    }
 }
 
@@ -41,8 +42,8 @@ async function findByName(req, res) {
 
 async function upsert(req, res) {
    try {
-      //await User.upsert(req.body.entries)
-      res.status(201)
+      await User.upsert(req.body.entries)
+      res.status(201).send({ message: "Upsert success"})
    } catch (err) {
       res.status(500).send({ err })
    }
