@@ -4,3 +4,4 @@ export { default as LeaderBoard } from './LeaderBoard';
 export { default as PreGameLobby } from './PreGameLobby';
 export { default as Scores } from './Scores';
 export { default as JoinGame } from './JoinGame';
+export { default as Quiz } from './Quiz';

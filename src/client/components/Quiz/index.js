@@ -56,9 +56,8 @@ const Quiz = ({url}) =>{
         return [...questions[counter].incorrect_answers, questions[counter].correct_answer].sort(()=> Math.random() - 0.5)
     }
 
-    
     const AnswerBtn = ({questions, counter, ans}) =>{
-        const [shuffle, setShuffle] = useState('Loading')
+        //const [shuffle, setShuffle] = useState('Loading')
         const [score, setScore] = useState(0)
         //setShuffle('Loading')
         //const ans = [...questions[counter].incorrect_answers, questions[counter].correct_answer].sort(()=> Math.random() - 0.5)

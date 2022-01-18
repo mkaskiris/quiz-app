@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js",
-    "test": "jest --watch --silent --setupFilesAfterEnv ./src/test/setupTests.js",
+    "test": "jest --watch --silent --setupFilesAfterEnv ./src/test/setupTests.js --coverage",
     "coverage": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false",
     "autograde": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js"
   },
@@ -28,6 +28,7 @@
     "@babel/plugin-transform-runtime": "^7.12.1",
     "@babel/preset-env": "^7.13.15",
     "@babel/preset-react": "^7.13.13",
+    "@shelf/jest-mongodb": "^2.2.0",
     "@testing-library/jest-dom": "^5.11.10",
     "@testing-library/react": "^11.2.6",
     "@testing-library/user-event": "^13.1.4",
@@ -44,7 +45,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bootstrap": "^5.1.3",
     "react": "^17.0.2",
+    "react-bootstrap": "^2.1.1",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.2",
     "react-router-dom": "^6.2.1",

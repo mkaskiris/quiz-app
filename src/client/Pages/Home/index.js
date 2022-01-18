@@ -1,16 +1,19 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import  Button  from 'react-bootstrap/Button';
+import Nav from 'react-bootstrap/Nav';
+import './index.css';
 
 const Home = () =>{
     return(
         <>  
-            <h1>The Quiz Game</h1>
-            <nav>
-                <NavLink className='leaderboards' to='/leaderboards'><button className='homebtn'>Leaderboard</button></NavLink>
-                <NavLink className='local' to='/create/local'><button className='homebtn'>Create new game</button></NavLink>
-                <NavLink className='online' to='/create/online'><button className='homebtn'>Create online game</button></NavLink>
-                <NavLink className='join' to='/join'><button className='homebtn'>Join online game</button></NavLink>
-            </nav>    
+            <h1 className='title'>The Quiz Game</h1>
+            <Nav className='d-grid gap-2'>
+                <Button href='./leaderboards' variant='outline-primary' size='lg'>Leaderboard</Button>
+                <Button href='./leaderboards' variant='outline-primary' size='lg' >Create new game</Button>
+                <Button href='./leaderboards' variant='outline-primary' size='lg'>Create online game</Button>
+                <Button href='./leaderboards' variant='outline-primary' size='lg'>Join online game</Button>
+            </Nav>    
         </>
     );
 }
