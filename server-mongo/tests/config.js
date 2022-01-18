@@ -1,16 +1,17 @@
 const request = require('supertest');
-const app = require('../../server');
-const { initConnection } = require('../../dbConfig');
+const app = require('../server');
+const { init } = require('../db_config/dbConfig');
 
-const dbName = process.env.DB_NAME;
+//const dbName = process.env.DB_NAME;
 
 function resetTestDB() {
     return new Promise(async (resolve, reject) => {
         try {
             // init client connection to db
-            const client = await initConnection();
+            //const client = await init();
             // init database
-            const db = client.db(dbName);
+            const db = await init() //client.db(dbName);
+            // console.log(db)
             // drop the users collection
             db.collection("users").drop((err) => {
                 if (err) throw err;
@@ -31,8 +32,8 @@ function resetTestDB() {
                 },
             ]);
             // close the connection to db
-            client.close(); 
-            resolve(`${dbName} reset for testing`);
+            //db.close()//client.close(); 
+            resolve(`DB reset for testing`);
         } catch (err) {
             reject(`Test DB could not be reset: ${err} in ${err.file}`);
         }
@@ -42,4 +43,4 @@ function resetTestDB() {
 global.request = request;
 global.app = app;
 global.resetTestDB = resetTestDB;
-global.port = process.env.PORT || 5000;
+global.port = 5000 //process.env.PORT || 5000;
