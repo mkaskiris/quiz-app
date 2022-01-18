@@ -18,7 +18,7 @@ class User {
             //console.log(userList)
             resolve(userList);
          } catch (err) {
-            reject("Error retrieving users")
+            reject(`Error retrieving users ${err}`)
          }
       });
    };
