@@ -3,40 +3,40 @@ const router = express.Router();
 
 const User = require('../models/User');
 
-router.get('/', async (req, res) => {
+async function getAll(req, res) {
    try {
       const users = await User.all
-      res.json({ entries: users })
+      res.status(200).json({ entries: users })
    } catch (err) {
       res.status(500).send({ err })
    }
-})
+}
 
-router.get('/:user', async (req, res) => {
+async function findByName(req, res) {
    try {
-      const user = await User.findByUser(req.params.user)
-      res.json({ user: user })
+      const user = await User.findByName(req.params.name)
+      user ? res.status(200).json({ user: user }) : res.status(404).send('User not found')
    } catch (err) {
-      res.status(500).send({ err })
+      res.status(500).send({ err: err })
    }
-})
+}
 
-router.post('/upsert', async (req, res) => {
+async function upsert(req, res) {
    try {
       await User.upsert(req.body.entries)
-      res.status(201)
+      res.status(201).send({ message: "Upsert success"})
    } catch (err) {
       res.status(500).send({ err })
    }
-})
+}
 
-router.delete('/:user', async (req, res) => {
+async function deleteByName(req, res) {
    try {
-      await User.delete(req.params.user)
-      res.status(201)
+      const user = await User.delete(req.params.name)
+      user ? res.status(204) : res.status(404).send('User does not exist')
    } catch (err) {
       res.status(500).send({ err })
    }
-})
+}
 
-module.exports = router
+module.exports = { getAll, findByName, deleteByName, upsert }
