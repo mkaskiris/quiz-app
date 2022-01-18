@@ -1,1 +1,1 @@
-{"mongoUri":"mongodb://127.0.0.1:39951/"}
+{"mongoUri": "mongodb+srv://quiz_user:quiz1234@quiz-app-ireland.58s8z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"}
