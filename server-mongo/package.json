@@ -6,12 +6,13 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "jest --setupFiles ./tests/config.js --watchAll --detectOpenHandles --runInBand --verbose --silent=false"
+    "test": "jest --setupFiles ./tests/config.js --watchAll --detectOpenHandles --runInBand --verbose --silent=false --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@shelf/jest-mongodb": "^2.2.0",
     "jest": "^27.4.7",
     "nodemon": "^2.0.6",
     "supertest": "^6.2.1"
@@ -21,5 +22,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.3"
+  },
+  "jest": {
+    "preset": "@shelf/jest-mongodb"
   }
 }

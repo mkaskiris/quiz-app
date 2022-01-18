@@ -13,8 +13,14 @@ class User {
       return new Promise (async (resolve, reject) => {
          try {
             const db = await init()
+<<<<<<< HEAD
+            const userDB = db.collection('users')
+            const userList = await userDB.find().toArray()
+            //console.log(userList)
+=======
             const userList = await db.collection('users').find().toArray()
             console.log(userList)
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
             resolve(userList);
          } catch (err) {
             reject("Error retrieving users")
@@ -28,15 +34,16 @@ class User {
             entries = entries.map(e => {
                const scoreKey = Object.keys(e).filter(key => ['easy', 'medium', 'hard'].find(e => e === key))[0]
                return {
-                  updateOne: {
-                     filter: { name: e.name },
-                     update: { $inc: { [scoreKey]: e[scoreKey] } },
-                     upsert: true
-                  }
-               }
+                  updateOne:  {
+                        filter: { name: e.name },
+                        update: { $set: { [scoreKey]: e[scoreKey] }},
+                        upsert: true
+                              }
+                     }
             })
             const db = await init()
             const userData = await db.collection('users').bulkWrite(entries)
+            //console.log(userData)
             resolve (userData.result)
          } catch (err) {
             reject(`Error creating new user ${err}`)
@@ -60,7 +67,11 @@ class User {
       return new Promise (async (resolve, reject) => {
          try {
             const db = await init();
+<<<<<<< HEAD
+            const userData = await db.collection('users').findOneAndDelete({ name: name })//({ _id: ObjectId(id) }).toArray()
+=======
             const userData = await db.collection('users').remove({ name: name })//({ _id: ObjectId(id) }).toArray()
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
             resolve (userData);
          } catch (err) {
             reject('User not found');
