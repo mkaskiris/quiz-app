@@ -13,9 +13,14 @@ class User {
       return new Promise (async (resolve, reject) => {
          try {
             const db = await init()
+<<<<<<< HEAD
             const userDB = db.collection('users')
             const userList = await userDB.find().toArray()
             //console.log(userList)
+=======
+            const userList = await db.collection('users').find().toArray()
+            console.log(userList)
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
             resolve(userList);
          } catch (err) {
             reject("Error retrieving users")
@@ -62,7 +67,11 @@ class User {
       return new Promise (async (resolve, reject) => {
          try {
             const db = await init();
+<<<<<<< HEAD
             const userData = await db.collection('users').findOneAndDelete({ name: name })//({ _id: ObjectId(id) }).toArray()
+=======
+            const userData = await db.collection('users').remove({ name: name })//({ _id: ObjectId(id) }).toArray()
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
             resolve (userData);
          } catch (err) {
             reject('User not found');

@@ -21,6 +21,7 @@ describe('users controller', () => {
     describe('findByName', () => {
         it('returns a user document with a 200 status code', async () => {
             jest.spyOn(User, 'findByName')
+<<<<<<< HEAD
                 .mockResolvedValue(true);
             
             const mockReq = { params: { name: "TestUser1" } }
@@ -48,6 +49,15 @@ describe('users controller', () => {
             await usersController.findByName(mockReq, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(500);
             // expect(mockJson).toHaveBeenCalledWith(testUser);
+=======
+                .mockResolvedValue('James');
+            
+            const mockReq = { params: { name: "TestUser1" } }
+            
+            await usersController.findByName(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(200);
+            expect(mockJson).toHaveBeenCalledWith(testUser);
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
         });
     });
 
@@ -61,6 +71,7 @@ describe('users controller', () => {
             expect(mockJson).toHaveBeenCalledWith({ entries: [testUser,testUserTwo] });
         })
     });
+<<<<<<< HEAD
 
     describe('upsert', () => {
         it('returns a 201 when updating a score', async () => {
@@ -111,4 +122,6 @@ describe('users controller', () => {
                 expect(mockStatus).toHaveBeenCalledWith(500)
         })
     })
+=======
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
 });

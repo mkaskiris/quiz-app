@@ -1,6 +1,12 @@
 // const { resetTestDB } = require('./config')
+<<<<<<< HEAD
 //const User = require('../models/user');
 
+=======
+const User = require('../models/user');
+
+//qjest.setTimeout(50000)
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
 describe('users endpoints', () => {
    let api;
    
@@ -42,11 +48,40 @@ describe('users endpoints', () => {
       expect(res.statusCode).toEqual(404);
       expect(res.body.user).toBeFalsy()
    });
+<<<<<<< HEAD
 
    it('should return welcome on root page', async ()=>{
       const res = await request(api).get('/');
       expect(res.statusCode).toEqual(200)
    })
    
+=======
+   
+    /*
+   it('should return 201 after upserting', async () => {
+      const testData = {
+      entries: [
+         {
+            name: 'TestUser4',
+            easy: 10,
+            medium: 5
+         }
+      ]}
+      const res = await request(api).post('/users/upsert').send(testData);
+      expect(res.statusCode).toEqual(201);
+   });
+    
+    it('resolves with a new user on successful db query', async () => {
+        const data = {
+            name: "TestUser4",
+        }
+
+        const user = await User.upsert(data);
+        const users = await User.all;
+        expect(user).toHaveProperty('id');
+        expect(user).toHaveProperty('name');
+        expect(users.all.length).toEqual(4);
+    });*/
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
 });
 

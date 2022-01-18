@@ -1,8 +1,14 @@
 const request = require('supertest');
 const app = require('../server');
 const { init } = require('../db_config/dbConfig');
+<<<<<<< HEAD
 
 //const dbName = process.env.DB_NAME;
+=======
+
+//const dbName = process.env.DB_NAME;
+
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
 
 function resetTestDB() {
     return new Promise(async (resolve, reject) => {
