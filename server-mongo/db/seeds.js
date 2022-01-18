@@ -1,4 +1,5 @@
-const db = connect("mongodb://localhost:27017/mongotest")
+//const db = connect("mongodb://localhost:27017/mongotest")
+const db = connect("mongodb+srv://quiz_user:quiz1234@quiz-app-ireland.58s8z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
 
 db.users.drop()
 

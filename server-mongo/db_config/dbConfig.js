@@ -1,11 +1,11 @@
 const { MongoClient } = require('mongodb')
-const connectionUrl = process.env.DB_CONNECTION;
+const connectionUrl = process.env.MONGODB_URI;
 const dbName = process.env.DB_NAME
 
 const init = async () => {
-  let client = await MongoClient.connect("mongodb+srv://quiz_user:quiz1234@quiz-app-ireland.58s8z.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+  let client = await MongoClient.connect(connectionUrl)
   //console.log('connected to database!', dbName)
-  return client.db('users')
+  //return client.db('users')
 }
 
 module.exports = { init };
