@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { default as Welcome } from '../pages/Welcome';
 import { render, screen } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';

@@ -87,9 +87,9 @@ function CreateQuiz() {
          <>
             <div className="w3-card-4 w3-container w3-pale-blue">
                <h1>Create quiz - minimum 2 players</h1>
-               <form onSubmit={ submitPlayer }>
-                  <input className='w3-margin-right' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
-                  <input className="w3-button w3-purple w3-round-xlarge" type="submit" value="Add" />
+               <form role="submitPlayer" onSubmit={ submitPlayer }>
+                  <input role='create' className='w3-margin-right' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
+                  <input role='submit' className="w3-button w3-purple w3-round-xlarge" type="submit" value="Add" />
                </form>
             </div>
             { players.length > 0 &&
@@ -99,21 +99,21 @@ function CreateQuiz() {
                </>
             }
             { players.length > 1 &&
-               <form onSubmit={ submitForm }>
+               <form role="quiz-options" onSubmit={ submitForm }>
                   <label htmlFor="amount">Enter number of questions</label>
                   <input className='w3-margin-right' type="number" min="5" name="amount" value={formData.amount} onChange={handleInput} />
                   <label>Select difficulty</label>
-                  <select onChange={handleInput} name="difficulty">
+                  <select role="difficulty" onChange={handleInput} name="difficulty">
                      <option value="easy">Easy</option>
                      <option value="medium">Medium</option>
                      <option value="hard">Hard</option>
                   </select>
                   <label htmlFor="category">Select category</label>
-                  <select onChange={handleInput} name="category">
+                  <select role="category" onChange={handleInput} name="category">
                      <option value="any">Any</option>
                      { categoryList.map(category => <option key={category.id} value={category.id}>{category.name}</option>) }
                   </select>
-                  <input className="w3-button w3-purple w3-round-xlarge" type="submit" value="Start" />
+                  <input role="submit-options" className="w3-button w3-purple w3-round-xlarge" type="submit" value="Start" />
                </form>
             }
          </>
