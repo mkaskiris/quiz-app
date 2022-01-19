@@ -101,7 +101,7 @@ function CreateQuiz() {
             { players.length > 1 &&
                <form onSubmit={ submitForm }>
                   <label htmlFor="amount">Enter number of questions</label>
-                  <input className='w3-margin-right' type="number" name="amount" value={formData.amount} onChange={handleInput} />
+                  <input className='w3-margin-right' type="number" min="5" name="amount" value={formData.amount} onChange={handleInput} />
                   <label>Select difficulty</label>
                   <select onChange={handleInput} name="difficulty">
                      <option value="easy">Easy</option>
