@@ -2,18 +2,22 @@ import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import App from './App';
-import SearchRepo from './pages/SearchRepo';
-import RepoPage from './pages/RepoPage';
+import Welcome from './pages/Welcome'
+import CreateQuiz from './pages/CreateQuiz'
+import Questions from './pages/Questions'
+import ResultsPage from './pages/ResultsPage'
+import Leaderboard from './pages/Leaderboard'
 
 ReactDOM.render(
    <React.StrictMode>
       <BrowserRouter>
          <Routes>
             <Route path="/" element={<App />}>
-               <Route index element={<SearchRepo />}/>
-               <Route path="/repo_page" element={<RepoPage />}>
-                  <Route path=":name" element={<RepoPage />} />
-               </Route>
+               <Route index element={<Welcome />} />
+               <Route path="/create_quiz" element={<CreateQuiz />} />
+               <Route path="/questions_page" element={<Questions />} />
+               <Route path="/results_page" element={<ResultsPage />} />
+               <Route path="/leaderboard" element={<Leaderboard />} />
             </Route>
          </Routes>
       </BrowserRouter>
