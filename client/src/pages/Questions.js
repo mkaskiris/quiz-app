@@ -23,6 +23,8 @@ function QuestionsPage() {
    useEffect(() => {
       if(!triviaData)
          navigate('/')
+
+      return () => setTriviaData('')
    }, [])
 
    useEffect(() => {
@@ -95,12 +97,16 @@ function QuestionsPage() {
 
       return(
          <div className="w3-card-4 w3-container">
-            <h1>Question for { triviaData.questions[questionIndex].player.name } </h1>
+            { Object.keys(triviaData.scores).length > 1 && <h1>Question for { triviaData.questions[questionIndex].player.name } </h1>}
             <h2>{ triviaData.questions[questionIndex].player.questionNo} of { triviaData.amount }</h2>
             <h3>{triviaData.questions[questionIndex].question}</h3>
                { options.map((e, i) => <button key={`option${i}`} className={"w3-button w3-margin " + getButtonColour(e)} value={e} onClick={ handleCheck } disabled={selected}>{ e }</button>) }
          </div>
       )
+   }
+
+   const handleClick = e => {
+      navigate(e.target.value)
    }
 
    return (
@@ -112,6 +118,7 @@ function QuestionsPage() {
                   <h3>Timer: {counter}</h3>
                </div>
                <Question />
+               <button onClick={handleClick} value='/'>Quit</button>
             </div>
          }
       </div>

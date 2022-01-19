@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import Context from "../utils/Context"
 
 function ResultsPage() {
-   const { triviaData } = useContext(Context)
+   const { triviaData, setTriviaData } = useContext(Context)
    const navigate = useNavigate()
 
    useEffect(() => {
@@ -24,6 +24,8 @@ function ResultsPage() {
          navigate('/')
       else
          sendData()
+
+      return () => setTriviaData('')
    }, [])
    
    function getScores() {
@@ -43,17 +45,18 @@ function ResultsPage() {
    return (
       <div className="w3-content w3-container w3-margin-top">
          { triviaData &&
+         <>
             <div className="w3-card-4 w3-container">
                <h2>Score Summary</h2>
-               <>
-                  { getScores()}
-               </>
+               {getScores()}
             </div>
+            <div>
+               <button onClick={handeClick} value={'/'}>Home</button>
+               <button onClick={handeClick} value={'/create_quiz'}>Play again</button>
+               <button onClick={handeClick} value={'/leaderboard'}>Leaderboard</button>
+            </div>
+         </>
          }
-         <div>
-            <button onClick={handeClick} value={'/create_quiz'}>Play again</button>
-            <button onClick={handeClick} value={'/leaderboard'}>Leaderboard</button>
-         </div>
       </div>
    )
 }
