@@ -48,8 +48,6 @@ function Leaderboard() {
          list = [...scoresList]
          list = list.filter(e => filter in e)
          list.sort((a, b) => b[filter] - a[filter])
-         console.log(scoresList)
-         console.log(list)
       } else {
          list = scoresList
       }
