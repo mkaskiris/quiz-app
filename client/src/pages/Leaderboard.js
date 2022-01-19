@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import NavigateButton from '../components/NavigateButton'
 
 function Leaderboard() {
-   const navigate = useNavigate()
    const [info, setInfo] = useState('')
    const [scoresList, setScoresList] = useState([])
    const [filter, setFilter] = useState('')
@@ -38,10 +37,6 @@ function Leaderboard() {
       setFilter(e.target.value)
    }
 
-   const handeClick = e => {
-      navigate(e.target.value)
-   }
-
    function ScoresList(props) {
       let list
       if(filter) {
@@ -69,7 +64,7 @@ function Leaderboard() {
          <div>
             <ScoresList difficultyFilter={filter}/>
          </div>
-         <button onClick={handeClick} value={'/'}>Home</button>
+         <NavigateButton navigatePath={'/'} buttonText="Home" />
       </div>
    )
 }

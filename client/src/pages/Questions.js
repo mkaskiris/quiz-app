@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import NavigateButton from '../components/NavigateButton'
 import Context from "../utils/Context"
 
 function QuestionsPage() {
@@ -23,8 +24,6 @@ function QuestionsPage() {
    useEffect(() => {
       if(!triviaData)
          navigate('/')
-
-      return () => setTriviaData('')
    }, [])
 
    useEffect(() => {
@@ -118,7 +117,7 @@ function QuestionsPage() {
                   <h3>Timer: {counter}</h3>
                </div>
                <Question />
-               <button onClick={handleClick} value='/'>Quit</button>
+               <NavigateButton navigatePath={'/'} buttonText="Quit" />
             </div>
          }
       </div>
