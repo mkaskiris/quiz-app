@@ -84,7 +84,7 @@ function QuestionsPage() {
       }
 
       const getButtonColour = value => {
-         let colour = "w3-light-grey"
+         let colour = "questionButtons"
          if(selected) {
             if(value === selected)
                value === triviaData.questions[questionIndex].correct_answer ? colour = "w3-green" : colour = "w3-red"
@@ -95,11 +95,11 @@ function QuestionsPage() {
       }
 
       return(
-         <div className="w3-card-4 w3-container">
-            { Object.keys(triviaData.scores).length > 1 && <h1>Question for { triviaData.questions[questionIndex].player.name } </h1>}
-            <h2>{ triviaData.questions[questionIndex].player.questionNo} of { triviaData.amount }</h2>
-            <h3>{triviaData.questions[questionIndex].question}</h3>
-               { options.map((e, i) => <button key={`option${i}`} className={"w3-button w3-margin " + getButtonColour(e)} value={e} onClick={ handleCheck } disabled={selected}>{ e }</button>) }
+         <div className="questions">
+            { Object.keys(triviaData.scores).length > 1 && <h1 className='q'>Question for { triviaData.questions[questionIndex].player.name } </h1>}
+            <h2 className='q'>{ triviaData.questions[questionIndex].player.questionNo} of { triviaData.amount }</h2>
+            <h3 className='q'>{triviaData.questions[questionIndex].question}</h3>
+               { options.map((e, i) => <button key={`option${i}`} className={"questionButtons " + getButtonColour(e)} value={e} onClick={ handleCheck } disabled={selected}>{ e }</button>) }
          </div>
       )
    }
@@ -109,15 +109,17 @@ function QuestionsPage() {
    }
 
    return (
-      <div className="w3-content w3-container w3-margin-top">
+      <div >
          { triviaData &&
             <div>
-               <div>
+               <div className="questiontitle">
                   <h2>Score: {score}</h2>
                   <h3>Timer: {counter}</h3>
                </div>
                <Question />
+               <div className='buttonsContainer'>
                <NavigateButton navigatePath={'/'} buttonText="Quit" />
+               </div>
             </div>
          }
       </div>

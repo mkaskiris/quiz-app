@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import NavigateButton from '../components/NavigateButton'
 import Context from "../utils/Context"
 
+
 function ResultsPage() {
    const { triviaData, setTriviaData } = useContext(Context)
    const navigate = useNavigate()
@@ -40,17 +41,17 @@ function ResultsPage() {
    }
 
    return (
-      <div className="w3-content w3-container w3-margin-top">
+      <div className="">
          { triviaData &&
          <>
-            <div className="w3-card-4 w3-container">
+            <div className="scoreSummary">
                <h2>Score Summary</h2>
                {getScores()}
             </div>
-            <div>
+            <div className='scorebuttons'>
                <NavigateButton navigatePath={'/'} buttonText="Home" />
                <NavigateButton navigatePath={'/create_quiz'} buttonText="Play again" />
-               <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard" />
+               <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard"  />
             </div>
          </>
          }
