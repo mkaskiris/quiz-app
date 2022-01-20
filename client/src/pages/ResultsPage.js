@@ -1,10 +1,11 @@
 import axios from 'axios'
 import { useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import NavigateButton from '../components/NavigateButton'
 import Context from "../utils/Context"
 
 function ResultsPage() {
-   const { triviaData } = useContext(Context)
+   const { triviaData, setTriviaData } = useContext(Context)
    const navigate = useNavigate()
 
    useEffect(() => {
@@ -24,6 +25,8 @@ function ResultsPage() {
          navigate('/')
       else
          sendData()
+
+      return () => setTriviaData('')
    }, [])
    
    function getScores() {
@@ -36,24 +39,21 @@ function ResultsPage() {
       return scores.map((e, i) => <h2 key={`player${i}`}>{`${e.name}: ${e.score}`}</h2>)
    }
 
-   const handeClick = e => {
-      navigate(e.target.value)
-   }
-
    return (
       <div className="w3-content w3-container w3-margin-top">
          { triviaData &&
+         <>
             <div className="w3-card-4 w3-container">
                <h2>Score Summary</h2>
-               <>
-                  { getScores()}
-               </>
+               {getScores()}
             </div>
+            <div>
+               <NavigateButton navigatePath={'/'} buttonText="Home" />
+               <NavigateButton navigatePath={'/create_quiz'} buttonText="Play again" />
+               <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard" />
+            </div>
+         </>
          }
-         <div>
-            <button onClick={handeClick} value={'/create_quiz'}>Play again</button>
-            <button onClick={handeClick} value={'/leaderboard'}>Leaderboard</button>
-         </div>
       </div>
    )
 }

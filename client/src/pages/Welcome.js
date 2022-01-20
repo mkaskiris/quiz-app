@@ -1,16 +1,11 @@
-import { useNavigate } from 'react-router-dom'
+import NavigateButton from "../components/NavigateButton"
 
 function Welcome() {
-   const navigate = useNavigate()
-
-   const handeClick = e => {
-      navigate(e.target.value)
-   }
 
    return (
       <div role="button-container">
-         <button role="create-quiz" onClick={handeClick} value={'/create_quiz'}>Create Quiz</button>
-         <button role="leaderboard" onClick={handeClick} value={'/leaderboard'}>Leaderboard</button>
+         <NavigateButton navigatePath={'/create_quiz'} buttonText="Create Quiz" />
+         <NavigateButton navigatePath={'/leaderboard'} buttonText="Leaderboard" />
       </div>
    )
 }
