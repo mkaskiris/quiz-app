@@ -61,10 +61,10 @@ function Leaderboard() {
             <option value="hard">Hard</option>
          </select>
          <div className='table'>
-            <ScoresList difficultyFilter={filter}/>
+            <ScoresList difficultyFilter={filter} />
          </div>
          <h2>{info}</h2>
-         <NavigateButton navigatePath={'/'} buttonText="Home"  />
+         <NavigateButton navigatePath={'/'} buttonText="Home" />
       </div>
    )
 }
