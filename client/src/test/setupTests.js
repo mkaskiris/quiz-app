@@ -8,26 +8,34 @@ import  Context  from '../utils/Context';
 
 
 const UnAuthedProviders = ({ children }) => {
-    // const triviaData = {
-    //     category: "Geography",
-    //     type: "multiple",
-    //     difficulty: "medium",
-    //     question: "What is the name of the former country that was succeeded by countries such as Serbia, Croatia and Slovenia?",
-    //     correct_answer: "Yugoslavia",
-    //     incorrect_answers: [
-    //     "Czechoslovakia",
-    //     "Abkhazia",
-    //     "South Ossetia"
-    //     ]
-    //     }
-    const [triviaData, setTriviaData] = useState();
-    return (
-            <Context.Provider value={{triviaData, setTriviaData}}>
-                {children}
-            </Context.Provider>
 
-    )
-  }
+  const mockContext ={
+    questions: [
+        {
+        player: {
+            name: "James", 
+            questionNo: 1},
+        category: "Entertainment: Music",
+        type: "multiple",
+        difficulty: "easy",
+        question: "Who had a 1983 hit with the song &#039;Africa&#039;?",
+        correct_answer: "Toto",
+        incorrect_answers: [
+        "Foreigner",
+        "Steely Dan",
+        "Journey"
+        ]
+        }], 
+        scores: [{James: 1}, {Meni: 2}, {Raj: 3}], 
+        amount: 10
+  } 
+  const [triviaData, setTriviaData] = useState(mockContext);
+  return (
+          <Context.Provider value={{triviaData, setTriviaData}}>
+              {children}
+          </Context.Provider>
+  )
+}
 
 // const renderWithReduxProvider = (ui, options={}) => {
 //     let TestWrapper = TestProviders(options)

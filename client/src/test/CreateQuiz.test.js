@@ -29,7 +29,7 @@ describe('CreateQuiz', () => {
         renderWithProviders(<CreateQuiz />)
         const heading = screen.getAllByRole('heading')
         expect(heading).toBeTruthy()
-    });
+    }); 
 
     test('it changes the difficulty value to the difficulty selected by the user', () => {
         renderWithProviders(<CreateQuiz />)
@@ -59,18 +59,17 @@ describe('CreateQuiz', () => {
         userEvent.click(submit)
         userEvent.type(create, 'player2')
         userEvent.click(submit)
-
-        // const category = screen.getByRole('category')
-        // userEvent.click(category)
-        // userEvent.selectOptions(category, 'History')   
-        // expect(category.value).toEqual(23);  
+        
+        const category = screen.getByRole('category')
+        userEvent.click(category)
+        userEvent.selectOptions(category, 'History')   
+        expect(category.value).toEqual(23);  //cannot find stuff thats rendering after initial render
     });
 
     test('submitForm', () => {
         renderWithProviders(<CreateQuiz />)
         //const instance = app.instance()
         //const spy = jest.spyOn(CreateQuiz, 'submitForm')
-        
         const create = screen.getByRole('create')
         const submit = screen.getByRole('submit')
         userEvent.type(create, 'player1')
@@ -79,9 +78,42 @@ describe('CreateQuiz', () => {
         userEvent.click(submit)
         
         const submitFormButton = screen.getByRole('submit-options')
-        userEvent.click(submitFormButton)   
+        userEvent.click(submitFormButton)
         expect(2+2).toEqual(4)
-        // expect(submitForm).toHaveBeenCalled();  
+        // expect(submitForm).toHaveBeenCalled();  //doesnt recognize the function, but calls it
     });
 
+    test('fetchTriviaData', async ()=> {
+        const trivia_categories = [{
+            name: 'History',
+            id: 23 
+        }]
+
+        const results = [
+            {
+            category: "Entertainment: Music",
+            type: "multiple",
+            difficulty: "easy",
+            question: "Who had a 1983 hit with the song &#039;Africa&#039;?",
+            correct_answer: "Toto",
+            incorrect_answers: [
+            "Foreigner",
+            "Steely Dan",
+            "Journey"
+            ]
+        }]
+        const category = await axios.get.mockResolvedValue({ data: { trivia_categories } } );
+        const wrapper = renderWithProviders(<CreateQuiz />)
+        const create = screen.getByRole('create')
+        const submit = screen.getByRole('submit')
+        userEvent.type(create, 'player1')
+        userEvent.click(submit)
+        userEvent.type(create, 'player2')
+        userEvent.click(submit)
+        const trivia = await axios.get.mockResolvedValue({ data: { results } } );
+        expect(trivia).toHaveBeenCalledWith(expect.stringMatching(/opentdb/));
+        // expect(mockedUsedNavigate).toHaveBeenCalled();
+    });
+
+    
 });
