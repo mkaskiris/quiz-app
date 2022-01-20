@@ -88,8 +88,8 @@ function CreateQuiz() {
             <div className="w3-card-4 w3-container w3-pale-blue">
                <h1>Create quiz</h1>
                <form onSubmit={ submitPlayer }>
-                  <input className='w3-margin-right' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
-                  <input className="w3-button w3-purple w3-round-xlarge" type="submit" value="Add" />
+                  <input role="create" className='w3-margin-right' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
+                  <input role="submit" className="w3-button w3-purple w3-round-xlarge" type="submit" value="Add" />
                </form>
             </div>
             { players.length > 0 &&

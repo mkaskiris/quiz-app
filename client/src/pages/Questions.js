@@ -12,7 +12,6 @@ function QuestionsPage() {
    const [counter, setCounter] = useState(10);
    const [options, setOptions] = useState(initOptions())
    
-
    function initOptions() {
       if(triviaData) {
          const data = triviaData.questions[questionIndex]
@@ -104,12 +103,12 @@ function QuestionsPage() {
       )
    }
 
-   const handleClick = e => {
-      navigate(e.target.value)
-   }
+   // const handleClick = e => {
+   //    navigate(e.target.value)
+   // }
 
    return (
-      <div className="w3-content w3-container w3-margin-top">
+      <div role="question-container" className="w3-content w3-container w3-margin-top">
          { triviaData &&
             <div>
                <div>
