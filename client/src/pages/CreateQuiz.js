@@ -99,8 +99,8 @@ function CreateQuiz() {
             <div className="createquiz">
                <h1 className='c'>Create quiz</h1>
                <form onSubmit={ submitPlayer }>
-                  <input className='input' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
-                  <input className="addButton" type="submit" value="Add" />
+                  <input role="create" className='input' type="text" name="name" value={player} placeholder="Enter player name" onChange={handlePlayer} />
+                  <input role="submit" className="addButton" type="submit" value="Add" />
                </form>
             </div>
             { players.length > 0 &&
@@ -111,13 +111,13 @@ function CreateQuiz() {
                   <label htmlFor="amount">Enter number of questions</label>
                   <input className='formInput' type="number" min="5" name="amount" value={formData.amount} onChange={handleInput} />
                   <label>Select difficulty</label>
-                  <select className='formInput' onChange={handleInput} name="difficulty">
+                  <select role="difficulty" className='formInput' onChange={handleInput} name="difficulty">
                      <option value="easy">Easy</option>
                      <option value="medium">Medium</option>
                      <option value="hard">Hard</option>
                   </select>
                   <label htmlFor="category">Select category</label>
-                  <select className='formInput' onChange={handleInput} name="category">
+                  <select role="category" className='formInput' onChange={handleInput} name="category">
                      <option value="any">Any</option>
                      { categoryList.map(category => <option key={category.id} value={category.id}>{category.name}</option>) }
                   </select>

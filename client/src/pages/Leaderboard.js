@@ -54,14 +54,14 @@ function Leaderboard() {
       <div className="LeaderBoard">
          <h1>LEADERBOARD</h1>
          <label>Filter by difficulty</label>
-         <select onChange={handleInput} name="difficulty">
+         <select role="leaderboard-difficulty" onChange={handleInput} name="difficulty">
             <option value=''>All</option>
             <option value="easy">Easy</option>
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
          </select>
-         <div className='table'>
-            <ScoresList difficultyFilter={filter} />
+         <div role='scorelist' className='table'>
+            <ScoresList difficultyFilter={filter}/>
          </div>
          <h2>{info}</h2>
          <NavigateButton navigatePath={'/'} buttonText="Home" />

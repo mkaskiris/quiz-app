@@ -21,6 +21,35 @@ describe('users controller', () => {
     describe('findByName', () => {
         it('returns a user document with a 200 status code', async () => {
             jest.spyOn(User, 'findByName')
+<<<<<<< HEAD
+                .mockResolvedValue(true);
+            
+            const mockReq = { params: { name: "TestUser1" } }
+            
+            const user = await usersController.findByName(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(200);
+            //expect(user).toHaveProperty({user: true});
+        });
+        it('returns a 404 when user doesnt exist', async () => {
+            jest.spyOn(User, 'findByName')
+                .mockResolvedValue(false);
+            
+            const mockReq = { params: { name: "TestUser5000"} }
+            
+            const user = await usersController.findByName(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(404);
+            // expect(mockJson).toHaveBeenCalledWith(testUser);
+        });
+        it('returns a 500 when no param entered', async () => {
+            jest.spyOn(User, 'findByName')
+                .mockRejectedValue()
+            
+            const mockReq = { params: {} }
+            
+            await usersController.findByName(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(500);
+            // expect(mockJson).toHaveBeenCalledWith(testUser);
+=======
                 .mockResolvedValue('James');
             
             const mockReq = { params: { name: "TestUser1" } }
@@ -28,6 +57,7 @@ describe('users controller', () => {
             await usersController.findByName(mockReq, mockRes);
             expect(mockStatus).toHaveBeenCalledWith(200);
             expect(mockJson).toHaveBeenCalledWith(testUser);
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
         });
     });
 
@@ -41,4 +71,57 @@ describe('users controller', () => {
             expect(mockJson).toHaveBeenCalledWith({ entries: [testUser,testUserTwo] });
         })
     });
+<<<<<<< HEAD
+
+    describe('upsert', () => {
+        it('returns a 201 when updating a score', async () => {
+            jest.spyOn(User, 'upsert')
+                .mockResolvedValue();
+            
+            const mockReq = { body: {entries: [{ name: "TestUser1", easy: 150 }]} }
+            
+            await usersController.upsert(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(201);
+            //expect(mockJson).toHaveBeenCalledWith(testUser);
+        });
+        it('returns a 500 when entry isnt valid user', async () => {
+            jest.spyOn(User, 'upsert')
+                .mockRejectedValue({});
+            
+            const mockReq = { params: { name: "TestUser5000", easy: 150 } }
+            
+            await usersController.upsert(mockReq, mockRes);
+            expect(mockStatus).toHaveBeenCalledWith(500);
+            // expect(mockJson).toHaveBeenCalledWith(testUser);
+        });
+    });
+
+    describe('deletebyname', ()=>{
+        it('returns 204 if user was deleted', async () =>{
+            jest.spyOn(User, 'delete')
+                .mockResolvedValue({name:'Hellow'})
+            
+                const mockReq = { params: { name: "TestUser1"} }
+                await usersController.deleteByName(mockReq,mockRes)
+                expect(mockStatus).toHaveBeenCalledWith(204)
+        })
+        it('returns 404 if user it failed', async () =>{
+            jest.spyOn(User, 'delete')
+                .mockResolvedValue(false)
+            
+                const mockReq = { params: { name: "TestUser5000"} }
+                await usersController.deleteByName(mockReq,mockRes)
+                expect(mockStatus).toHaveBeenCalledWith(404)
+        })
+        it('returns 500 if no param entered', async () =>{
+            jest.spyOn(User, 'delete')
+                .mockRejectedValue({})
+            
+                const mockReq = { params: {} }
+                await usersController.deleteByName(mockReq,mockRes)
+                expect(mockStatus).toHaveBeenCalledWith(500)
+        })
+    })
+=======
+>>>>>>> 0fbcc7555532793165fa719a096790b321ea330d
 });

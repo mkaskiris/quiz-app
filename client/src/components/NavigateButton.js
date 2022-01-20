@@ -11,4 +11,4 @@ function NavigateButton(props) {
    return ( <button className="navigatebutton" onClick={handeClick}>{ props.buttonText }</button> )
 } 
 
-export default NavigateButton
+export default NavigateButton;

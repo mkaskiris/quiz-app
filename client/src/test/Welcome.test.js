@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { default as Welcome } from '../pages/Welcome';
 import { render, screen } from '@testing-library/react';
 import { act, renderHook } from '@testing-library/react-hooks';
@@ -24,16 +28,10 @@ describe('Welcome', () => {
 
     test('renders 2 buttons', () => {
         render(<Welcome />)
-        const createQuiz = screen.getByRole('create-quiz')
-        expect(createQuiz.nodeName).toEqual("BUTTON");
-        expect(createQuiz.textContent).toEqual("Create Quiz");
+        const button1 = screen.getByText('Create Quiz')
+        expect(button1.nodeName).toEqual("BUTTON");
 
-        const leaderboard = screen.getByRole('leaderboard')
-        expect(leaderboard.nodeName).toEqual("BUTTON");
-        expect(leaderboard.textContent).toEqual("Leaderboard");
+        const button2 = screen.getByText('Leaderboard')
+        expect(button2.nodeName).toEqual("BUTTON");
     });
-
-    // test('has a handleClick function', ()=> {
-    //     expect(handleClick).toBeDefined() 
-    // });
 });
