@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+body {
+  background-color: rgb(14, 116, 136);
+  position: relative; 
+}
+li {
+  color: black;
+  background-color: whitesmoke;
+  border-radius: 20px;
+  margin-bottom: 2rem;
+  padding: 20px;
+  font-family: 'Fredoka One', cursive;
+  list-style-type: none;
+  box-shadow: 2px 0px 8px rgba(6, 205, 255, 0.705);
+}
+
+li:hover {
+  background-color: gray;
+}
+.Name{
+  text-align: center;
+  font-family: 'Fredoka One', cursive;
+  color: rgba(20, 67, 155, 0.938);
+  font-size: 42pt;
+  position:static;
+  margin-top: 8px;
+  margin-bottom: 10px;
+ text-shadow: 2px 0px 8px rgba(226, 241, 11, 0.849); 
+}
+.createquizButton{
+  background-color: rgba(68, 170, 218, 0.925);
+  font-family:sans-serif;
+  margin-top: 20px;
+  font-family: 'Fredoka One', cursive;
+  border-radius: 20px;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+}
+.createquizButton:hover {
+  background-color: gray;
+  box-shadow: 5px 5px 10px rgba(6, 205, 255, 0.705);
+}
+
+.welcome {
+  position:relative;
+	width: 40%;
+	display: grid;
+	padding: 50px;
+	background-color:rgba(143, 171, 180, 0.712);
+	margin: auto;
+	box-shadow: 6px 5px 10px rgba(233, 248, 252, 0.733);
+  border-radius: 20px;
+}
+.create {
+  display:block;
+  text-align: center;
+  justify-content: center;
+  width: 45%;
+  margin: auto;
+  padding: 10px;
+  font-family: 'Fredoka One', cursive;
+}
+.createquiz{
+  position:relative;
+	top: 0;
+	width: 90%;
+  font-family: 'Fredoka One', cursive;
+	display: grid;
+	justify-content: space-evenly;
+	padding: 30px;
+	background-color:rgba(143, 171, 180, 0.712);
+	color: #ffffff;
+	margin: auto;
+	box-shadow: 5px 5px 10px rgba(6, 205, 255, 0.705);
+  border-radius: 20px;
+}
+.input {
+  padding: 8px;
+  width: 70%;
+  margin-right: 20px;
+  border-color:lightskyblue;
+}
+.addButton{
+  background-color:rgb(229, 235, 235);
+  font-family:sans-serif;
+  margin: auto;
+  font-family: 'Fredoka One', cursive;
+  border-radius: 20px;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+}
+.addButton:hover{
+  background-color: gray;
+}
+.form{
+  display:block;
+  margin:auto;
+	justify-content: space-evenly;
+  width:45%
+}
+
+.formInput{
+  text-align: center;
+  justify-content: center;
+  font-family: 'Fredoka One', cursive;
+  width: 90%;
+  margin: auto;
+}
+.startButton {
+  font-family: 'Fredoka One', cursive;
+  margin: 10px 20px 10px 20px;
+  border-radius: 20px;
+  padding: 5px 20px 5px 20px;
+  cursor: pointer;
+  color: white;
+  background-color: rgba(77, 204, 65, 0.842);
+}
+.startButton:hover{
+  background-color: gray;
+  box-shadow: 5px 5px 10px rgba(56, 255, 6, 0.705);
+}
+.HomeButton{
+  background-color:rgb(177, 54, 54);
+  font-family:sans-serif;
+  color: white;
+  margin: 40px 20px 40px 20px;
+  font-family: 'Fredoka One', cursive;
+  border-radius: 20px;
+  padding: 5px 15px 5px 15px;
+  cursor: pointer;
+}
+.HomeButton:hover{
+  background-color: rgb(82, 79, 79);
+}
+.c{
+  font-family: 'Fredoka One', cursive;
+  font-size: 26pt;
+}
+
+.questions{
+  position: static;
+  width: 80%;
+  height: 20%;
+  font-family: 'Fredoka One', cursive;
+	display:grid;
+	justify-content: space-evenly;
+	padding: 40px;
+	background-color:rgba(143, 171, 180, 0.712);
+	color: #ffffff;
+  margin:auto;
+	box-shadow: 5px 5px 3px rgba(27, 26, 26, 0.322);
+  border-radius: 20px;
+}
+.q{
+  font-family: 'Fredoka One', cursive;
+}
+
+.questionButtons{
+    background-color:rgb(229, 235, 235);
+    font-family:sans-serif;
+    margin: auto;
+    margin-top:10px;
+    padding: 10px;
+    width: 80%;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  .questionButtons:hover{
+    background-color: gray;
+  }
+  .LeaderBoardButton{
+    background-color: rgba(201, 201, 51, 0.829);
+    font-family:sans-serif;
+    margin-top: 40px;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+  }
+  .LeaderBoardButton:hover {
+    background-color: gray;
+    box-shadow: 5px 5px 10px rgba(218, 255, 6, 0.705);
+  }
+  .playAgain{
+    background-color: rgba(77, 204, 65, 0.842);
+    font-family:sans-serif;
+    margin-left: 40%;
+    margin-right: 4%;
+    margin-top: 5%;
+    font-family: 'Fredoka One', cursive;
+    border-radius: 20px;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+  }
+  .playAgain:hover{
+    background-color: gray;
+    box-shadow: 5px 5px 10px rgba(56, 255, 6, 0.705);
+  }
+
+.scoreSummary{
+  position:relative;
+	top: 20px;
+  font-family:sans-serif;
+	width: 30%;
+	display: grid;
+	justify-content: space-evenly;
+	padding: 40px;
+	background-color:rgba(144, 236, 144, 0.411);
+	color: #000000;
+	margin: auto;
+	box-shadow: 5px 5px 6px rgba(37, 228, 180, 0.829);
+  border-radius: 20px;
+}
+.scoreSummary h2 {
+  font-size: 24pt;
+  font-family: 'Fredoka One', cursive;
+}
+.questiontitle{
+  margin: -5% 0% 7px 75%;
+  font-family:sans-serif;
+	display: grid;
+  width: 10%;
+	justify-content: space-evenly;
+	background-color:rgba(144, 236, 144, 0.534);
+  border-radius: 5px;
+}
+.scorebuttons{
+  font-size: 12pt;
+  display: flex;
+  width: 35%;
+  padding-top: 3%;
+  margin:auto;
+  justify-content: center;
+}
+.questiontitle h2 , h3{
+  font-size: 16pt;
+  padding: 2px;
+  margin: auto;
+  font-family: 'Fredoka One', cursive;
+}
+
+.LeaderBoard{
+    position:static;
+    width: 30%;
+    font-family: 'Fredoka One', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    padding: 10px;
+    background-color:rgba(243, 195, 91, 0.63);
+    color: black;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(251, 255, 6, 0.705);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 12pt; 
+}
+.LeaderBoard h1{
+  display: flex;
+  font-size: 24pt;
+  margin:auto;
+  font-family: 'Fredoka One', cursive;
+}
+.LeaderBoard h2 {
+  margin-top:-5px;
+}
+.LeaderBoard select{
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
+.table{
+  border-style:dashed;
+  border-color: #8b8126;
+  margin-top: 20px;
+  border-radius: 5px;
+  display:grid;
+  font-size: 14pt;
+}
+.table p {
+  margin:5px;
+}
+.navigatebutton{
+  background-color: rgb(78 128 229 / 76%);
+  color: white;
+  font-family:sans-serif;
+  margin-right: 5%;
+  margin-left: 5%;
+  margin-top: 5%;
+  font-family: 'Fredoka One', cursive;
+  border-radius: 20px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  width: 90%;
+  font-size: 14pt;
+}
+.navigatebutton:hover{
+  background-color: gray;
+  box-shadow: 5px 5px 10px rgba(218, 255, 6, 0.705);
+}
+.buttonsContainer{
+  display: grid;
+  width: 10%;
+  margin:auto;
+  margin-top:10px;
+}

@@ -8,7 +8,7 @@ function NavigateButton(props) {
       navigate(props.navigatePath)
    }
    
-   return ( <button onClick={handeClick}>{ props.buttonText }</button> )
-}
+   return ( <button className="navigatebutton" onClick={handeClick}>{ props.buttonText }</button> )
+} 
 
 export default NavigateButton;
