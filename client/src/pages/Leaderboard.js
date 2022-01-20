@@ -51,9 +51,8 @@ function Leaderboard() {
    }
 
    return (
-      <div>
-         <h2>{info}</h2>
-         <h1>Leaderboard</h1>
+      <div className="LeaderBoard">
+         <h1>LEADERBOARD</h1>
          <label>Filter by difficulty</label>
          <select onChange={handleInput} name="difficulty">
             <option value=''>All</option>
@@ -61,10 +60,11 @@ function Leaderboard() {
             <option value="medium">Medium</option>
             <option value="hard">Hard</option>
          </select>
-         <div>
+         <div className='table'>
             <ScoresList difficultyFilter={filter}/>
          </div>
-         <NavigateButton navigatePath={'/'} buttonText="Home" />
+         <h2>{info}</h2>
+         <NavigateButton navigatePath={'/'} buttonText="Home"  />
       </div>
    )
 }

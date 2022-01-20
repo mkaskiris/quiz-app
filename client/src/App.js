@@ -8,10 +8,10 @@ function App() {
    return (
       <div className="App">
          <Context.Provider value={{triviaData, setTriviaData}}>
-            <header className="w3-text-purple w3-xxlarge w3-center">
+            <header className="Name">
                Quiz App
             </header>
-            <main className="w3-padding-32">
+            <main className="">
                <Outlet />
             </main>
          </Context.Provider>
