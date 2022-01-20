@@ -12,7 +12,6 @@ function QuestionsPage() {
    const [counter, setCounter] = useState(10);
    const [options, setOptions] = useState(initOptions())
    
-
    function initOptions() {
       if(triviaData) {
          const data = triviaData.questions[questionIndex]
@@ -104,12 +103,12 @@ function QuestionsPage() {
       )
    }
 
-   const handleClick = e => {
-      navigate(e.target.value)
-   }
+   // const handleClick = e => {
+   //    navigate(e.target.value)
+   // }
 
    return (
-      <div >
+      <div role="question-container">
          { triviaData &&
             <div>
                <div className="questiontitle">
